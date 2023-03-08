@@ -361,7 +361,6 @@ class Index:
 		page: str
 			pagination of records in the backend (1= first page)
 		"""
-
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -385,7 +384,6 @@ class Index:
 
 		# filter records
 		if actions.action.startswith('filter'):
-			print(actions.action)
 			filterRecords = filter_values[actions.action]
 			filterRecords = filterRecords if filterRecords not in ['none',None] else ''
 			filterName = actions.action
@@ -485,7 +483,7 @@ class Index:
 			types = [t['type'] for t in templates]
 			now_time = str(time.time()).replace('.','-')
 			# check for duplicates
-			res_n = actions.class_name if (res_type not in types and res_name not in names) else class_name+'_'+now_time
+			res_n = actions.class_name if (res_type not in types and res_name not in names) else actions.class_name+'_'+now_time
 			u.updateTemplateList(res_n,res_type)
 			raise web.seeother(prefixLocal+'template-'+res_name)
 

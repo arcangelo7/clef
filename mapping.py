@@ -30,7 +30,7 @@ base = conf.base
 
 # DATA ENDPOINT AND DIRECTORY
 server = sparql.SPARQLServer(conf.myEndpoint)
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = os.path.dirname(os.path.realpath(__file__)).replace('\\', '/')
 RESOURCE_TEMPLATES = conf.resource_templates
 TEMPLATE_LIST = conf.template_list
 

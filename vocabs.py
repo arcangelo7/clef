@@ -9,7 +9,7 @@ import utils as u
 u.reload_config()
 
 server = sparql.SPARQLServer(conf.myEndpoint)
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = os.path.dirname(os.path.realpath(__file__)).replace('\\', '/')
 
 def import_vocabs():
 	""" get all controlled vocabularies and uploads to the triplestore"""
